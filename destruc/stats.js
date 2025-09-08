@@ -7,11 +7,12 @@ function stat(stats) {
   const [top1, top2, top3, ...moyenneDesAutres] = statsDec;
 
   // moyenne des autres
-  const moyenne =
-    moyenneDesAutres.reduce((sum, m) => sum + m.score, 0) /
-    moyenneDesAutres.length;
+  const moyenne = moyenneDesAutres.length
+    ? moyenneDesAutres.reduce((sum, m) => sum + m.score, 0) /
+      moyenneDesAutres.length
+    : 0;
 
-  const tops = [top1, top2, top3];
+  const tops = [top1, top2, top3].filter(Boolean);
 
   return {
     Top3: [top1, top2, top3],
@@ -26,7 +27,7 @@ const stats = [
   { name: "Alice", score: 92, city: "Lyon" },
   { name: "Bob", score: 75, city: "Paris" },
   { name: "Eve", score: 88, city: "Lille" },
-  { name: "Dan", score: 50, city: "Nice" },
+  { name: "Dan", score: 66, city: "Nice" },
   { name: "Cara", score: 81, city: "Bordeaux" },
 ];
 
