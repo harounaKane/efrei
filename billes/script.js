@@ -5,7 +5,7 @@ const qsa = (elem) => Array.from( document.querySelectorAll(elem) );
  * VARIABLES
  ***********/
 const joueurs = [];
-let nombreBille = 10;
+let nombreBille = 15;
 const billeInitiale = nombreBille;
 let coupPrecedent; 
 let coup;
@@ -44,16 +44,38 @@ qsa("button").forEach(btn => {
 
             if( nombreBille < btnAct.getAttribute("data-bille") )
                 btnAct.setAttribute("disabled", true);
-            
         });
 
         info();
     });
 });
 
-
 function info(){
+    let image = "";
+    for(let i=0; i<nombreBille; i++)
+        image += "🥎";
+
+    qs("#billes").innerHTML = image;
+
     qs("#joueurActif").innerHTML = joueurs[joueurActif].prenom;
     qs("#cp").innerHTML = `Coup précédent ${coupPrecedent}`;
     qs("#reste").innerHTML = `Billes restant: ${nombreBille}`
+
+    barreProgress();
 }
+
+function barreProgress(){
+    let p = (nombreBille/billeInitiale ) * 100;
+
+    qs("#progression").style.width = `${p}%`; 
+
+    gagnant();
+}
+
+function gagnant(){
+    if( (nombreBille == 0) || (coupPrecedent == 1 && nombreBille == 1) ){
+        qs("#fin").classList.remove("d-none");
+        qs("#gagnant").innerHTML = joueurs[joueurActif].prenom;
+    }
+}
+
