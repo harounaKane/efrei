@@ -22,6 +22,24 @@ qs(".toolbar-toggle").addEventListener("click", () => {
   qs("#toolbar").classList.toggle("d-none");
 });
 
+document.addEventListener("keyup", (e) => {
+    switch( e.key ){
+        case "ArrowLeft":
+            reculer();
+            break;
+        case "ArrowRight":
+            avancer();
+            break;
+        case " ":
+            play();
+            break;
+        case "r":
+        case "R":
+            random();
+            break;
+    }    
+})
+
 refresh();
 
 function random(){
@@ -30,7 +48,7 @@ function random(){
     while(POSACTUELLE == pos){
         pos = Math.floor( Math.random() * images.length );
     }
-        
+
     // do{
     //     pos = Math.floor( Math.random() * images.length );
     // }while(POSACTUELLE == pos);
