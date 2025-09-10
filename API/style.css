@@ -1,0 +1,21 @@
+main{
+    display: flex;
+}
+
+.usersList{
+    width: 20%;
+    border-right: 2px solid rgb(78, 69, 69);
+    padding: 10px;
+    margin-right: 15px;
+}
+
+.user, .post{
+    border: 1px solid rgb(216, 204, 204);
+    padding: 10px;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.posts{
+    width: 100%;
+}
