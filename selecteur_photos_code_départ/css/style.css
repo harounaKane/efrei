@@ -1,0 +1,23 @@
+h1{text-align: center;}
+
+ul{
+    width: 700px;
+}
+
+li{
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color .5s;
+}
+
+em{color: red;}
+
+.selected{
+    background-color: green;
+}
+
+p{
+    font-weight: bold;
+}
